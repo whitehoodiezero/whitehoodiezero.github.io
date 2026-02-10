@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul Azis Hartadi | Cyber Security & AI Specialist</title>
-    <meta name="description" content="Elite Cyber Security Specialist, Bug Bounty Hunter & AI Automation Expert">
+    <title>Abdul Azis Hartadi | Elite Cyber Security Specialist</title>
+    <meta name="description" content="Elite Cyber Security Specialist, Bug Bounty Hunter & AI Automation Expert - Tactical Suroboyo">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Matrix Rain Background -->
@@ -31,15 +31,28 @@
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#expertise" class="nav-link">Expertise</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with ASCII Art -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <!-- ASCII Art Banner -->
+            <div class="ascii-banner">
+                <pre class="ascii-art">
+   █████╗ ███████╗██╗███████╗
+  ██╔══██╗╚══███╔╝██║██╔════╝
+  ███████║  ███╔╝ ██║███████╗
+  ██╔══██║ ███╔╝  ██║╚════██║
+  ██║  ██║███████╗██║███████║
+  ╚═╝  ╚═╝╚══════╝╚═╝╚══════╝
+                </pre>
+            </div>
+            
             <div class="glitch-wrapper">
                 <div class="glitch" data-text="ABDUL AZIS HARTADI">ABDUL AZIS HARTADI</div>
             </div>
@@ -50,6 +63,11 @@
             <p class="hero-description">
                 Elite Cyber Security Specialist | Bug Bounty Hunter | AI Automation Expert
             </p>
+            <div class="tactical-badge">
+                <span class="badge-icon">⚔</span>
+                <span class="badge-text">TACTICAL SUROBOYO</span>
+                <span class="badge-icon">⚔</span>
+            </div>
             <div class="hero-cta">
                 <a href="#contact" class="btn btn-primary">
                     <span>INITIATE CONTACT</span>
@@ -124,7 +142,7 @@
                                 <span class="terminal-btn terminal-minimize"></span>
                                 <span class="terminal-btn terminal-maximize"></span>
                             </div>
-                            <div class="terminal-title">azis@security:~</div>
+                            <div class="terminal-title">azis@tactical-suroboyo:~</div>
                         </div>
                         <div class="terminal-body">
                             <div class="terminal-line"><span class="prompt">$</span> cat profile.txt</div>
@@ -152,6 +170,7 @@
             </h2>
             <div class="expertise-grid">
                 <div class="expertise-card">
+                    <div class="scan-line"></div>
                     <div class="card-icon">🎯</div>
                     <h3>Bug Bounty Hunting</h3>
                     <p>Identifying critical vulnerabilities across web applications, APIs, and infrastructure. Expert in OWASP Top 10 and beyond.</p>
@@ -163,6 +182,7 @@
                     </div>
                 </div>
                 <div class="expertise-card">
+                    <div class="scan-line"></div>
                     <div class="card-icon">🤖</div>
                     <h3>AI Automation</h3>
                     <p>Building intelligent automation systems using machine learning and deep learning for security operations and workflow optimization.</p>
@@ -174,6 +194,7 @@
                     </div>
                 </div>
                 <div class="expertise-card">
+                    <div class="scan-line"></div>
                     <div class="card-icon">🛡️</div>
                     <h3>Cyber Security</h3>
                     <p>Comprehensive security assessments, penetration testing, and secure architecture design for enterprise applications.</p>
@@ -188,16 +209,125 @@
         </div>
     </section>
 
+    <!-- Vulnerability Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">[03]</span>
+                <span>VULNERABILITY DISCLOSURE TIMELINE</span>
+                <div class="title-line"></div>
+            </h2>
+            <div class="timeline-container">
+                <div class="timeline-item" data-severity="critical">
+                    <div class="timeline-date">2025 Q1</div>
+                    <div class="timeline-marker">
+                        <span class="severity-badge critical">CRITICAL</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Remote Code Execution in Major Cloud Platform</h3>
+                        <p>Discovered critical RCE vulnerability affecting enterprise infrastructure. Enabled arbitrary code execution with elevated privileges.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">RCE</span>
+                            <span class="timeline-tag">Cloud Security</span>
+                            <span class="timeline-tag">CVE-2025-XXXX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-severity="high">
+                    <div class="timeline-date">2024 Q4</div>
+                    <div class="timeline-marker">
+                        <span class="severity-badge high">HIGH</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Authentication Bypass in Financial API</h3>
+                        <p>Identified authentication vulnerability allowing unauthorized access to sensitive financial data and transaction systems.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Auth Bypass</span>
+                            <span class="timeline-tag">API Security</span>
+                            <span class="timeline-tag">$10K Bounty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-severity="critical">
+                    <div class="timeline-date">2024 Q3</div>
+                    <div class="timeline-marker">
+                        <span class="severity-badge critical">CRITICAL</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>SQL Injection in E-Commerce Platform</h3>
+                        <p>Uncovered critical SQLi vulnerability exposing customer PII and payment information for millions of users.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">SQLi</span>
+                            <span class="timeline-tag">Data Breach</span>
+                            <span class="timeline-tag">$15K Bounty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-severity="high">
+                    <div class="timeline-date">2024 Q2</div>
+                    <div class="timeline-marker">
+                        <span class="severity-badge high">HIGH</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>XSS Chain Leading to Account Takeover</h3>
+                        <p>Discovered XSS vulnerability chain that could be weaponized for full account takeover on major social platform.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">XSS</span>
+                            <span class="timeline-tag">Account Takeover</span>
+                            <span class="timeline-tag">$8K Bounty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-severity="medium">
+                    <div class="timeline-date">2024 Q1</div>
+                    <div class="timeline-marker">
+                        <span class="severity-badge medium">MEDIUM</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>IDOR Vulnerability in Healthcare Portal</h3>
+                        <p>Found Insecure Direct Object Reference allowing access to medical records of other patients.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">IDOR</span>
+                            <span class="timeline-tag">Healthcare</span>
+                            <span class="timeline-tag">$5K Bounty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-severity="critical">
+                    <div class="timeline-date">2023 Q4</div>
+                    <div class="timeline-marker">
+                        <span class="severity-badge critical">CRITICAL</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Zero-Day in IoT Device Firmware</h3>
+                        <p>Discovered zero-day vulnerability in widely-deployed IoT firmware enabling remote takeover of devices.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Zero-Day</span>
+                            <span class="timeline-tag">IoT</span>
+                            <span class="timeline-tag">$20K Bounty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">
-                <span class="section-number">[03]</span>
+                <span class="section-number">[04]</span>
                 <span>PROJECTS</span>
                 <div class="title-line"></div>
             </h2>
             <div class="projects-grid">
                 <div class="project-card">
+                    <div class="scan-line"></div>
                     <div class="project-header">
                         <h3>Advanced Threat Detection System</h3>
                         <span class="project-status">Active</span>
@@ -210,6 +340,7 @@
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="scan-line"></div>
                     <div class="project-header">
                         <h3>Automated Vulnerability Scanner</h3>
                         <span class="project-status">Completed</span>
@@ -222,6 +353,7 @@
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="scan-line"></div>
                     <div class="project-header">
                         <h3>Security Operations Dashboard</h3>
                         <span class="project-status">Active</span>
@@ -234,6 +366,7 @@
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="scan-line"></div>
                     <div class="project-header">
                         <h3>AI-Powered Phishing Detector</h3>
                         <span class="project-status">R&D</span>
@@ -253,7 +386,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="section-number">[04]</span>
+                <span class="section-number">[05]</span>
                 <span>CONTACT</span>
                 <div class="title-line"></div>
             </h2>
@@ -275,14 +408,14 @@
                                 <div class="method-label">LinkedIn</div>
                                 <div class="method-value">Abdul Azis Hartadi</div>
                             </div>
-                        </a>                        <a href="https://wa.me/6285156091411" target="_blank" class="contact-method">
+                        </a>
+                        <a href="https://wa.me/6285156091411" target="_blank" class="contact-method">
                             <div class="method-icon">📱</div>
                             <div class="method-text">
                                 <div class="method-label">WhatsApp</div>
                                 <div class="method-value">+62 851-5609-1411</div>
                             </div>
                         </a>
-
                         <a href="https://github.com" target="_blank" class="contact-method">
                             <div class="method-icon">💻</div>
                             <div class="method-text">
@@ -318,7 +451,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>&copy; 2024 Abdul Azis Hartadi. All rights reserved.</p>
+                    <p>&copy; 2025 Abdul Azis Hartadi. All rights reserved.</p>
                     <p class="footer-tagline">Securing the digital frontier, one vulnerability at a time.</p>
                 </div>
                 <div class="footer-links">
@@ -329,6 +462,28 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Terminal Component -->
+    <div class="floating-terminal" id="floatingTerminal">
+        <div class="floating-terminal-header">
+            <div class="terminal-buttons">
+                <span class="terminal-btn terminal-close" id="closeTerminal"></span>
+                <span class="terminal-btn terminal-minimize"></span>
+                <span class="terminal-btn terminal-maximize" id="maximizeTerminal"></span>
+            </div>
+            <div class="terminal-title">Quick Commands</div>
+        </div>
+        <div class="floating-terminal-body">
+            <div class="terminal-output" id="terminalOutput">
+                <div class="terminal-line output">Welcome to Quick Commands Terminal</div>
+                <div class="terminal-line output">Type 'help' for available commands</div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">$</span>
+                <input type="text" class="terminal-input" id="terminalInput" placeholder="Type command...">
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
