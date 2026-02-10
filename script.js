@@ -15,7 +15,7 @@ for (let i = 0; i < columns; i++) {
 }
 
 function drawMatrix() {
-    ctx.fillStyle = 'rgba(10, 10, 15, 0.05)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     ctx.fillStyle = '#00ff88';
@@ -45,7 +45,8 @@ const phrases = [
     'CYBER SECURITY SPECIALIST',
     'BUG BOUNTY HUNTER',
     'AI AUTOMATION EXPERT',
-    'PENETRATION TESTER'
+    'PENETRATION TESTER',
+    'THREAT ANALYST'
 ];
 
 let phraseIndex = 0;
@@ -155,28 +156,25 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Get form data
         const name = contactForm.querySelector('input[type="text"]').value;
         const email = contactForm.querySelector('input[type="email"]').value;
         const message = contactForm.querySelector('textarea').value;
         
-        // Create mailto link with form data
         const subject = encodeURIComponent(`Message from ${name}`);
         const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
         const mailtoLink = `mailto:abdulazishartadi@gmail.com?subject=${subject}&body=${body}`;
         
-        // Open mailto link
         window.location.href = mailtoLink;
         
-        // Reset form after a short delay
         setTimeout(() => {
             contactForm.reset();
         }, 500);
     });
 }
+
 // ===== SCROLL ANIMATIONS =====
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.expertise-card, .project-card, .about-text, .terminal');
+    const elements = document.querySelectorAll('.expertise-card, .project-card, .about-text, .terminal, .timeline-item');
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
@@ -189,8 +187,7 @@ const animateOnScroll = () => {
     });
 };
 
-// Initialize elements for animation
-document.querySelectorAll('.expertise-card, .project-card, .about-text, .terminal').forEach(el => {
+document.querySelectorAll('.expertise-card, .project-card, .about-text, .terminal, .timeline-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -199,47 +196,15 @@ document.querySelectorAll('.expertise-card, .project-card, .about-text, .termina
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 
-// ===== EASTER EGG: KONAMI CODE =====
-let konamiCode = [];
-const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-
-document.addEventListener('keydown', (e) => {
-    konamiCode.push(e.key);
-    konamiCode = konamiCode.slice(-10);
-    
-    if (konamiCode.join(',') === konamiSequence.join(',')) {
-        document.body.style.animation = 'rainbow 2s linear infinite';
-        setTimeout(() => {
-            document.body.style.animation = '';
-        }, 5000);
-    }
-});
-
-// Add rainbow animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes rainbow {
-        0% { filter: hue-rotate(0deg); }
-        100% { filter: hue-rotate(360deg); }
-    }
-`;
-document.head.appendChild(style);
-
-console.log('%c[SYSTEM INITIALIZED]', 'color: #00ff88; font-size: 16px; font-weight: bold;');
-console.log('%cWelcome to Abdul Azis Hartadi\'s Portfolio', 'color: #00d4ff; font-size: 14px;');
-console.log('%cTry the Konami Code for a surprise! ⬆⬆⬇⬇⬅➡⬅➡BA', 'color: #8a8a9a; font-size: 12px;');
-
-// ===== HAMBURGER MENU TOGGLE =====
+// ===== HAMBURGER MENU =====
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
 if (hamburger) {
-    // Toggle menu on hamburger click
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
         
-        // Prevent body scroll when menu is open
         if (navLinks.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -247,7 +212,6 @@ if (hamburger) {
         }
     });
     
-    // Close menu when a link is clicked
     navLinksItems.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -256,7 +220,6 @@ if (hamburger) {
         });
     });
     
-    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
             if (navLinks.classList.contains('active')) {
@@ -267,3 +230,212 @@ if (hamburger) {
         }
     });
 }
+
+// ===== FLOATING TERMINAL =====
+const floatingTerminal = document.getElementById('floatingTerminal');
+const terminalInput = document.getElementById('terminalInput');
+const terminalOutput = document.getElementById('terminalOutput');
+const closeTerminal = document.getElementById('closeTerminal');
+const maximizeTerminal = document.getElementById('maximizeTerminal');
+
+// Terminal Commands
+const terminalCommands = {
+    help: () => {
+        return `Available commands:
+  help       - Show this help message
+  about      - Learn more about me
+  skills     - View my skill set
+  projects   - Navigate to projects
+  timeline   - View vulnerability timeline
+  contact    - Go to contact section
+  clear      - Clear terminal output
+  whoami     - Display user information
+  ls         - List available sections
+  cat        - Read section content`;
+    },
+    about: () => {
+        document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+        return 'Navigating to About section...';
+    },
+    skills: () => {
+        document.querySelector('#expertise').scrollIntoView({ behavior: 'smooth' });
+        return 'Navigating to Expertise section...';
+    },
+    projects: () => {
+        document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
+        return 'Navigating to Projects section...';
+    },
+    timeline: () => {
+        document.querySelector('#timeline').scrollIntoView({ behavior: 'smooth' });
+        return 'Navigating to Vulnerability Timeline...';
+    },
+    contact: () => {
+        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+        return 'Navigating to Contact section...';
+    },
+    clear: () => {
+        terminalOutput.innerHTML = '';
+        return '';
+    },
+    whoami: () => {
+        return 'abdul-azis-hartadi\nRole: Elite Cyber Security Specialist\nLocation: Tactical Suroboyo';
+    },
+    ls: () => {
+        return 'home/\nabout/\nexpertise/\ntimeline/\nprojects/\ncontact/';
+    },
+    cat: (args) => {
+        if (!args[0]) return 'Usage: cat <section>';
+        switch(args[0]) {
+            case 'profile':
+                return 'Name: Abdul Azis Hartadi\nRole: Cyber Security Specialist\nFocus: Bug Bounty | AI | Automation';
+            case 'skills':
+                return 'penetration_testing/\nweb_security/\nai_automation/\nthreat_analysis/';
+            default:
+                return `cat: ${args[0]}: No such file or directory`;
+        }
+    }
+};
+
+// Process terminal command
+function processCommand(input) {
+    const parts = input.trim().split(' ');
+    const command = parts[0].toLowerCase();
+    const args = parts.slice(1);
+    
+    if (terminalCommands[command]) {
+        return terminalCommands[command](args);
+    } else if (command === '') {
+        return '';
+    } else {
+        return `Command not found: ${command}\nType 'help' for available commands`;
+    }
+}
+
+// Handle terminal input
+terminalInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const input = terminalInput.value;
+        const output = processCommand(input);
+        
+        // Add command to output
+        const commandLine = document.createElement('div');
+        commandLine.className = 'terminal-line';
+        commandLine.innerHTML = `<span class="prompt">$</span> ${input}`;
+        terminalOutput.appendChild(commandLine);
+        
+        // Add output
+        if (output) {
+            const outputLines = output.split('\n');
+            outputLines.forEach(line => {
+                const outputLine = document.createElement('div');
+                outputLine.className = 'terminal-line output';
+                outputLine.textContent = line;
+                terminalOutput.appendChild(outputLine);
+            });
+        }
+        
+        terminalInput.value = '';
+        
+        // Scroll to bottom
+        const terminalBody = document.querySelector('.floating-terminal-body');
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+});
+
+// Close terminal
+closeTerminal.addEventListener('click', () => {
+    floatingTerminal.classList.toggle('minimized');
+});
+
+// Maximize terminal
+maximizeTerminal.addEventListener('click', () => {
+    floatingTerminal.classList.toggle('maximized');
+});
+
+// Make terminal draggable
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+const terminalHeader = document.querySelector('.floating-terminal-header');
+
+terminalHeader.addEventListener('mousedown', dragStart);
+document.addEventListener('mousemove', drag);
+document.addEventListener('mouseup', dragEnd);
+
+function dragStart(e) {
+    if (e.target === terminalHeader || terminalHeader.contains(e.target)) {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+        isDragging = true;
+    }
+}
+
+function drag(e) {
+    if (isDragging) {
+        e.preventDefault();
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+        xOffset = currentX;
+        yOffset = currentY;
+        
+        floatingTerminal.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    }
+}
+
+function dragEnd(e) {
+    isDragging = false;
+}
+
+// ===== CONSOLE EASTER EGGS =====
+console.log('%c[SYSTEM INITIALIZED]', 'color: #00ff88; font-size: 16px; font-weight: bold;');
+console.log('%cTACTICAL SUROBOYO PORTFOLIO v2.0', 'color: #00d4ff; font-size: 14px;');
+console.log('%cWelcome to Abdul Azis Hartadi\'s Elite Portfolio', 'color: #00d4ff; font-size: 14px;');
+console.log('%cTry the floating terminal for quick navigation!', 'color: #8a8a9a; font-size: 12px;');
+console.log('%cType "help" in the terminal for available commands', 'color: #8a8a9a; font-size: 12px;');
+
+// Konami Code Easter Egg
+let konamiCode = [];
+const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.key);
+    konamiCode = konamiCode.slice(-10);
+    
+    if (konamiCode.join(',') === konamiSequence.join(',')) {
+        document.body.style.animation = 'rainbow 2s linear infinite';
+        
+        // Add rainbow animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add terminal message
+        const easterEggLine = document.createElement('div');
+        easterEggLine.className = 'terminal-line output';
+        easterEggLine.textContent = '🎉 KONAMI CODE ACTIVATED! Rainbow mode engaged!';
+        easterEggLine.style.color = '#ff00ff';
+        terminalOutput.appendChild(easterEggLine);
+        
+        setTimeout(() => {
+            document.body.style.animation = '';
+        }, 5000);
+    }
+});
+
+// Welcome message in terminal after 2 seconds
+setTimeout(() => {
+    const welcomeLine = document.createElement('div');
+    welcomeLine.className = 'terminal-line output';
+    welcomeLine.innerHTML = '<span style="color: #00ff88;">⚡</span> Quick Terminal ready! Type "help" to begin.';
+    terminalOutput.appendChild(welcomeLine);
+}, 2000);
