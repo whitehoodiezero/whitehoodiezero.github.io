@@ -128,7 +128,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ===== ACTIVE NAV LINK =====
 const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+const navLinksItems = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     let current = '';
@@ -141,7 +141,7 @@ window.addEventListener('scroll', () => {
         }
     });
     
-    navLinks.forEach(link => {
+    navLinksItems.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#' + current) {
             link.classList.add('active');
@@ -232,7 +232,6 @@ console.log('%cTry the Konami Code for a surprise! ⬆⬆⬇⬇⬅➡⬅➡BA', 
 // ===== HAMBURGER MENU TOGGLE =====
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
-const navLinksItems = document.querySelectorAll('.nav-link');
 
 if (hamburger) {
     // Toggle menu on hamburger click
