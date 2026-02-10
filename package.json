@@ -1,0 +1,12 @@
+{
+  "name": "azis-portfolio",
+  "version": "1.0.0",
+  "description": "Premium Tactical Cyber Security Portfolio - Abdul Azis Hartadi",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": ["portfolio", "cybersecurity", "ai", "bug-bounty"],
+  "author": "Abdul Azis Hartadi",
+  "license": "MIT"
+}
