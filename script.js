@@ -156,25 +156,24 @@ if (contactForm) {
         e.preventDefault();
         
         // Get form data
-        const formData = new FormData(contactForm);
+        const name = contactForm.querySelector('input[type="text"]').value;
+        const email = contactForm.querySelector('input[type="email"]').value;
+        const message = contactForm.querySelector('textarea').value;
         
-        // In a real application, you would send this data to a server
-        console.log('Form submitted:', Object.fromEntries(formData));
+        // Create mailto link with form data
+        const subject = encodeURIComponent(`Message from ${name}`);
+        const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        const mailtoLink = `mailto:abdulazishartadi@gmail.com?subject=${subject}&body=${body}`;
         
-        // Show success message
-        const btn = contactForm.querySelector('.btn-primary');
-        const originalText = btn.querySelector('span').textContent;
-        btn.querySelector('span').textContent = 'MESSAGE SENT!';
-        btn.style.background = 'var(--color-secondary)';
+        // Open mailto link
+        window.location.href = mailtoLink;
         
+        // Reset form after a short delay
         setTimeout(() => {
-            btn.querySelector('span').textContent = originalText;
-            btn.style.background = 'var(--color-primary)';
             contactForm.reset();
-        }, 3000);
+        }, 500);
     });
 }
-
 // ===== SCROLL ANIMATIONS =====
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.expertise-card, .project-card, .about-text, .terminal');
