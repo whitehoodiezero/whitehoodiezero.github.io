@@ -228,3 +228,43 @@ document.head.appendChild(style);
 console.log('%c[SYSTEM INITIALIZED]', 'color: #00ff88; font-size: 16px; font-weight: bold;');
 console.log('%cWelcome to Abdul Azis Hartadi\'s Portfolio', 'color: #00d4ff; font-size: 14px;');
 console.log('%cTry the Konami Code for a surprise! ⬆⬆⬇⬇⬅➡⬅➡BA', 'color: #8a8a9a; font-size: 12px;');
+
+// ===== HAMBURGER MENU TOGGLE =====
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-link');
+
+if (hamburger) {
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        if (navLinks.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close menu when a link is clicked
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            if (navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+}
